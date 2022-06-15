@@ -1,0 +1,6 @@
+framework module Cobra {
+  umbrella header "Cobra-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

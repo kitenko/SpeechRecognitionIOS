@@ -1,0 +1,830 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		022765152315D032A11C02FB97BAE13D /* Pods-SpeechRecognitionNavigationController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DDFB1014ECEC084B117511BF630BC89 /* Pods-SpeechRecognitionNavigationController-dummy.m */; };
+		05D0DCA44AFF06D7160C8A890D5E74F3 /* Cobra-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D04A6F177BA4018F3EE1751266E13B /* Cobra-iOS-dummy.m */; };
+		2AA018356822587F821572D1531A8E44 /* Cobra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B87080D41D13A7321281E12A49C144 /* Cobra.swift */; };
+		3E62444640713CBEEF657E8DA51B2646 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9787FB7C94A0DC2A516C656509B78 /* Foundation.framework */; };
+		5B7AC81F674AC80445B50703FBF11A73 /* CobraErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F8C641617969596A69C41940993033 /* CobraErrors.swift */; };
+		5E62C5116541BF79B1813CBD63B3A4A8 /* ios-voice-processor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 161EA0D427BD01CA133BCA95E26E552F /* ios-voice-processor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60A3C45469FC068DED565B1D76E58381 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2689EA712E5D78CDDF35E7B1BD8994B6 /* AVFoundation.framework */; };
+		8B71B8F966C4A6C76D5CA6D1F0E68C53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9787FB7C94A0DC2A516C656509B78 /* Foundation.framework */; };
+		9CA61941C13B408588EF2350081FB172 /* ios-voice-processor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 321C1551F84844572B6766CD37ABD9AA /* ios-voice-processor-dummy.m */; };
+		D0C03D8514CF8DCEA379B64067CC2411 /* Pods-SpeechRecognitionNavigationController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1EA5AD30E64EFD27ADB638134CBB47 /* Pods-SpeechRecognitionNavigationController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5EC939DBF294D45CEE973A54500410B /* VoiceProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F163E418064F190E8E6924E1CDE6F1BB /* VoiceProcessor.swift */; };
+		D74F76A6BC1A5A98B34DDE8084DC3713 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BD9787FB7C94A0DC2A516C656509B78 /* Foundation.framework */; };
+		EA6A05B8707532547E8EED6275EF27EC /* Cobra-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C53F7AD4FE1B15D2C1C5BDD835194A38 /* Cobra-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5852B754093DD0638DC6084CAE2F34D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A130BA7717F06CE19F1293CF49AACEDB;
+			remoteInfo = "ios-voice-processor";
+		};
+		780AED97AB1409F1C991E27010F8CE1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 56FD753DE17CF166CC3F8B0FFA612DE5;
+			remoteInfo = "Cobra-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		147A7FD04599FEA91291077D7F9CF68B /* Pods-SpeechRecognitionNavigationController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SpeechRecognitionNavigationController-Info.plist"; sourceTree = "<group>"; };
+		161EA0D427BD01CA133BCA95E26E552F /* ios-voice-processor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ios-voice-processor-umbrella.h"; sourceTree = "<group>"; };
+		1D3C6DFBDC2685E51742FD5FF077C81F /* Pods-SpeechRecognitionNavigationController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SpeechRecognitionNavigationController.modulemap"; sourceTree = "<group>"; };
+		2689EA712E5D78CDDF35E7B1BD8994B6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		2A3C67E167FFE46B19475F63706BE565 /* Cobra-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cobra-iOS-Info.plist"; sourceTree = "<group>"; };
+		2BD9787FB7C94A0DC2A516C656509B78 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2F4F9DF554E335B824ED38859366627D /* ios-voice-processor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ios-voice-processor.debug.xcconfig"; sourceTree = "<group>"; };
+		2FA816F145BBF08F0C30A72A6C387944 /* Cobra-iOS-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Cobra-iOS-xcframeworks.sh"; sourceTree = "<group>"; };
+		321C1551F84844572B6766CD37ABD9AA /* ios-voice-processor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ios-voice-processor-dummy.m"; sourceTree = "<group>"; };
+		36F8C641617969596A69C41940993033 /* CobraErrors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CobraErrors.swift; path = binding/ios/CobraErrors.swift; sourceTree = "<group>"; };
+		39C5CFBA391EF7E1D650AFEC414F7898 /* Pods-SpeechRecognitionNavigationController-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SpeechRecognitionNavigationController-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3FDEA0C68BE11A2178BB53B46796BA4D /* ios-voice-processor-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ios-voice-processor-prefix.pch"; sourceTree = "<group>"; };
+		40B87080D41D13A7321281E12A49C144 /* Cobra.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cobra.swift; path = binding/ios/Cobra.swift; sourceTree = "<group>"; };
+		5A1EA5AD30E64EFD27ADB638134CBB47 /* Pods-SpeechRecognitionNavigationController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SpeechRecognitionNavigationController-umbrella.h"; sourceTree = "<group>"; };
+		5AA5D5961888D640AEEDD2E07AD42815 /* Pods-SpeechRecognitionNavigationController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SpeechRecognitionNavigationController.debug.xcconfig"; sourceTree = "<group>"; };
+		61EF6817F6DC9B3A078D813C9DD3CD74 /* ios-voice-processor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "ios-voice-processor.modulemap"; sourceTree = "<group>"; };
+		69D04A6F177BA4018F3EE1751266E13B /* Cobra-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cobra-iOS-dummy.m"; sourceTree = "<group>"; };
+		764C55C7BF76B1622E24DAE1570D343F /* Cobra-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Cobra-iOS"; path = Cobra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DDFB1014ECEC084B117511BF630BC89 /* Pods-SpeechRecognitionNavigationController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SpeechRecognitionNavigationController-dummy.m"; sourceTree = "<group>"; };
+		8541F160AD6C599A07A69F15BC18A4A0 /* PvCobra.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = PvCobra.xcframework; path = lib/ios/PvCobra.xcframework; sourceTree = "<group>"; };
+		8A1CC29B43A9642DAD50A6A2CA8CAD9C /* ios-voice-processor */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "ios-voice-processor"; path = ios_voice_processor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		950D3927586E67B49E212E9E042A52D7 /* Pods-SpeechRecognitionNavigationController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SpeechRecognitionNavigationController.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A8A539B2D18455C3EA541589F3DEA94A /* Pods-SpeechRecognitionNavigationController */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SpeechRecognitionNavigationController"; path = Pods_SpeechRecognitionNavigationController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53F7AD4FE1B15D2C1C5BDD835194A38 /* Cobra-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cobra-iOS-umbrella.h"; sourceTree = "<group>"; };
+		C587BBCE981AE23A9EC2348685C93D95 /* Pods-SpeechRecognitionNavigationController-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SpeechRecognitionNavigationController-frameworks.sh"; sourceTree = "<group>"; };
+		CA92BAC41C1C03BFF1E9B42B3710656F /* ios-voice-processor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ios-voice-processor.release.xcconfig"; sourceTree = "<group>"; };
+		CAA26B9B36EF1DB17A21A35E46C89424 /* Cobra-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cobra-iOS-prefix.pch"; sourceTree = "<group>"; };
+		CD55065C879391F6FE50FC180225CD87 /* Cobra-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Cobra-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E1A7DF4AD2A93E2EEBD7D9CBB6F88E78 /* Cobra-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Cobra-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		E86B5AF1DA92AE1902AB790205F1FD02 /* ios-voice-processor-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ios-voice-processor-Info.plist"; sourceTree = "<group>"; };
+		F14EFA2C3BBF63C9873871C9DDFB0DEB /* Cobra-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Cobra-iOS.modulemap"; sourceTree = "<group>"; };
+		F15743BDF1E6CBB63C08519ED89EB769 /* Pods-SpeechRecognitionNavigationController-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SpeechRecognitionNavigationController-acknowledgements.plist"; sourceTree = "<group>"; };
+		F163E418064F190E8E6924E1CDE6F1BB /* VoiceProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoiceProcessor.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5023DABCE1ECBE0A9CC87283BF2232F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60A3C45469FC068DED565B1D76E58381 /* AVFoundation.framework in Frameworks */,
+				3E62444640713CBEEF657E8DA51B2646 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C241B5799B46BC164A90851C1874B8CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D74F76A6BC1A5A98B34DDE8084DC3713 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5479EFFBE3274F67423D9C374C0D7DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B71B8F966C4A6C76D5CA6D1F0E68C53 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		065281B8F3C69CBC4266C2E5AACDFFFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B3B1ACF00816F43F005DA32E5D674069 /* Cobra-iOS */,
+				51D7FDE11D476891E34ED50EB230B8CD /* ios-voice-processor */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA13D49ADE69D79D70A8B79AAAC38DE9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E061105B8D0D21E23582EBEF5E31B35 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				61EF6817F6DC9B3A078D813C9DD3CD74 /* ios-voice-processor.modulemap */,
+				321C1551F84844572B6766CD37ABD9AA /* ios-voice-processor-dummy.m */,
+				E86B5AF1DA92AE1902AB790205F1FD02 /* ios-voice-processor-Info.plist */,
+				3FDEA0C68BE11A2178BB53B46796BA4D /* ios-voice-processor-prefix.pch */,
+				161EA0D427BD01CA133BCA95E26E552F /* ios-voice-processor-umbrella.h */,
+				2F4F9DF554E335B824ED38859366627D /* ios-voice-processor.debug.xcconfig */,
+				CA92BAC41C1C03BFF1E9B42B3710656F /* ios-voice-processor.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ios-voice-processor";
+			sourceTree = "<group>";
+		};
+		51D7FDE11D476891E34ED50EB230B8CD /* ios-voice-processor */ = {
+			isa = PBXGroup;
+			children = (
+				F163E418064F190E8E6924E1CDE6F1BB /* VoiceProcessor.swift */,
+				2E061105B8D0D21E23582EBEF5E31B35 /* Support Files */,
+			);
+			name = "ios-voice-processor";
+			path = "ios-voice-processor";
+			sourceTree = "<group>";
+		};
+		753FCBE10A381CF07BF042A7461740FE /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				80D48E1053C35DC55C0CDA28E68E8971 /* Pods-SpeechRecognitionNavigationController */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		80D48E1053C35DC55C0CDA28E68E8971 /* Pods-SpeechRecognitionNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				1D3C6DFBDC2685E51742FD5FF077C81F /* Pods-SpeechRecognitionNavigationController.modulemap */,
+				39C5CFBA391EF7E1D650AFEC414F7898 /* Pods-SpeechRecognitionNavigationController-acknowledgements.markdown */,
+				F15743BDF1E6CBB63C08519ED89EB769 /* Pods-SpeechRecognitionNavigationController-acknowledgements.plist */,
+				7DDFB1014ECEC084B117511BF630BC89 /* Pods-SpeechRecognitionNavigationController-dummy.m */,
+				C587BBCE981AE23A9EC2348685C93D95 /* Pods-SpeechRecognitionNavigationController-frameworks.sh */,
+				147A7FD04599FEA91291077D7F9CF68B /* Pods-SpeechRecognitionNavigationController-Info.plist */,
+				5A1EA5AD30E64EFD27ADB638134CBB47 /* Pods-SpeechRecognitionNavigationController-umbrella.h */,
+				5AA5D5961888D640AEEDD2E07AD42815 /* Pods-SpeechRecognitionNavigationController.debug.xcconfig */,
+				950D3927586E67B49E212E9E042A52D7 /* Pods-SpeechRecognitionNavigationController.release.xcconfig */,
+			);
+			name = "Pods-SpeechRecognitionNavigationController";
+			path = "Target Support Files/Pods-SpeechRecognitionNavigationController";
+			sourceTree = "<group>";
+		};
+		837CF6A98ED5A7600C660869C5EC691A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8541F160AD6C599A07A69F15BC18A4A0 /* PvCobra.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3B1ACF00816F43F005DA32E5D674069 /* Cobra-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				40B87080D41D13A7321281E12A49C144 /* Cobra.swift */,
+				36F8C641617969596A69C41940993033 /* CobraErrors.swift */,
+				837CF6A98ED5A7600C660869C5EC691A /* Frameworks */,
+				D5696630073531A325DDDF87C1B3D547 /* Support Files */,
+			);
+			name = "Cobra-iOS";
+			path = "Cobra-iOS";
+			sourceTree = "<group>";
+		};
+		CA13D49ADE69D79D70A8B79AAAC38DE9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2689EA712E5D78CDDF35E7B1BD8994B6 /* AVFoundation.framework */,
+				2BD9787FB7C94A0DC2A516C656509B78 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CD0E809DB6200427B1B5ED28B8C82FD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				764C55C7BF76B1622E24DAE1570D343F /* Cobra-iOS */,
+				8A1CC29B43A9642DAD50A6A2CA8CAD9C /* ios-voice-processor */,
+				A8A539B2D18455C3EA541589F3DEA94A /* Pods-SpeechRecognitionNavigationController */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				065281B8F3C69CBC4266C2E5AACDFFFC /* Pods */,
+				CD0E809DB6200427B1B5ED28B8C82FD5 /* Products */,
+				753FCBE10A381CF07BF042A7461740FE /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D5696630073531A325DDDF87C1B3D547 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F14EFA2C3BBF63C9873871C9DDFB0DEB /* Cobra-iOS.modulemap */,
+				69D04A6F177BA4018F3EE1751266E13B /* Cobra-iOS-dummy.m */,
+				2A3C67E167FFE46B19475F63706BE565 /* Cobra-iOS-Info.plist */,
+				CAA26B9B36EF1DB17A21A35E46C89424 /* Cobra-iOS-prefix.pch */,
+				C53F7AD4FE1B15D2C1C5BDD835194A38 /* Cobra-iOS-umbrella.h */,
+				2FA816F145BBF08F0C30A72A6C387944 /* Cobra-iOS-xcframeworks.sh */,
+				CD55065C879391F6FE50FC180225CD87 /* Cobra-iOS.debug.xcconfig */,
+				E1A7DF4AD2A93E2EEBD7D9CBB6F88E78 /* Cobra-iOS.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Cobra-iOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		309FDFDAF36EE6862DF10ADCBD4B389E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA6A05B8707532547E8EED6275EF27EC /* Cobra-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB2EBE67F5F57B777FA14152E954AFC7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E62C5116541BF79B1813CBD63B3A4A8 /* ios-voice-processor-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECB79579F1AE9B12A329C4FDB8C33E29 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0C03D8514CF8DCEA379B64067CC2411 /* Pods-SpeechRecognitionNavigationController-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		56FD753DE17CF166CC3F8B0FFA612DE5 /* Cobra-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8389D8D0D4700C50A2D8076D01EF2076 /* Build configuration list for PBXNativeTarget "Cobra-iOS" */;
+			buildPhases = (
+				309FDFDAF36EE6862DF10ADCBD4B389E /* Headers */,
+				F67BDE131FA1816DCFF9242941A694A7 /* [CP] Copy XCFrameworks */,
+				89B26DE5EA35A79390DD996F86F1608F /* Sources */,
+				E5479EFFBE3274F67423D9C374C0D7DA /* Frameworks */,
+				91E6D89C8F2BA7418301A1D27F5B8F18 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Cobra-iOS";
+			productName = Cobra;
+			productReference = 764C55C7BF76B1622E24DAE1570D343F /* Cobra-iOS */;
+			productType = "com.apple.product-type.framework";
+		};
+		6BDB3F6BC2047D88D633A0C4091013D0 /* Pods-SpeechRecognitionNavigationController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B7E130717581F3B8323FD06FF42CCF /* Build configuration list for PBXNativeTarget "Pods-SpeechRecognitionNavigationController" */;
+			buildPhases = (
+				ECB79579F1AE9B12A329C4FDB8C33E29 /* Headers */,
+				B86F771ACD2CFDF4DA0D223B67A9E303 /* Sources */,
+				C241B5799B46BC164A90851C1874B8CA /* Frameworks */,
+				3E6D8D4B6D352BD0A4104C8917E061ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD2B11FB516A97EF5EA782F6A21AFE23 /* PBXTargetDependency */,
+				A1925DAA72A4F13DF18F7595879F5F01 /* PBXTargetDependency */,
+			);
+			name = "Pods-SpeechRecognitionNavigationController";
+			productName = Pods_SpeechRecognitionNavigationController;
+			productReference = A8A539B2D18455C3EA541589F3DEA94A /* Pods-SpeechRecognitionNavigationController */;
+			productType = "com.apple.product-type.framework";
+		};
+		A130BA7717F06CE19F1293CF49AACEDB /* ios-voice-processor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22EB2C4452613846DFD7615E6F641FB4 /* Build configuration list for PBXNativeTarget "ios-voice-processor" */;
+			buildPhases = (
+				AB2EBE67F5F57B777FA14152E954AFC7 /* Headers */,
+				8C02F0E46044878919FEA1B8E91EA33C /* Sources */,
+				5023DABCE1ECBE0A9CC87283BF2232F6 /* Frameworks */,
+				5A9671DED6483DCE97B0CC0F651D1F2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ios-voice-processor";
+			productName = ios_voice_processor;
+			productReference = 8A1CC29B43A9642DAD50A6A2CA8CAD9C /* ios-voice-processor */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = CD0E809DB6200427B1B5ED28B8C82FD5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				56FD753DE17CF166CC3F8B0FFA612DE5 /* Cobra-iOS */,
+				A130BA7717F06CE19F1293CF49AACEDB /* ios-voice-processor */,
+				6BDB3F6BC2047D88D633A0C4091013D0 /* Pods-SpeechRecognitionNavigationController */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E6D8D4B6D352BD0A4104C8917E061ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A9671DED6483DCE97B0CC0F651D1F2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91E6D89C8F2BA7418301A1D27F5B8F18 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F67BDE131FA1816DCFF9242941A694A7 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Cobra-iOS/Cobra-iOS-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Cobra-iOS/Cobra-iOS-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Cobra-iOS/Cobra-iOS-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89B26DE5EA35A79390DD996F86F1608F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA018356822587F821572D1531A8E44 /* Cobra.swift in Sources */,
+				05D0DCA44AFF06D7160C8A890D5E74F3 /* Cobra-iOS-dummy.m in Sources */,
+				5B7AC81F674AC80445B50703FBF11A73 /* CobraErrors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C02F0E46044878919FEA1B8E91EA33C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CA61941C13B408588EF2350081FB172 /* ios-voice-processor-dummy.m in Sources */,
+				D5EC939DBF294D45CEE973A54500410B /* VoiceProcessor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86F771ACD2CFDF4DA0D223B67A9E303 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				022765152315D032A11C02FB97BAE13D /* Pods-SpeechRecognitionNavigationController-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1925DAA72A4F13DF18F7595879F5F01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ios-voice-processor";
+			target = A130BA7717F06CE19F1293CF49AACEDB /* ios-voice-processor */;
+			targetProxy = 5852B754093DD0638DC6084CAE2F34D0 /* PBXContainerItemProxy */;
+		};
+		BD2B11FB516A97EF5EA782F6A21AFE23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cobra-iOS";
+			target = 56FD753DE17CF166CC3F8B0FFA612DE5 /* Cobra-iOS */;
+			targetProxy = 780AED97AB1409F1C991E27010F8CE1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		09909ECBA13E8F70A928465E7F7A9A92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2DE0D8898245310716431F92FA4989FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		5038FAB38D8FDD42D59A5F24C95FF38C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD55065C879391F6FE50FC180225CD87 /* Cobra-iOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cobra-iOS/Cobra-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cobra-iOS/Cobra-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Cobra-iOS/Cobra-iOS.modulemap";
+				PRODUCT_MODULE_NAME = Cobra;
+				PRODUCT_NAME = Cobra;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6278A2CDD77708BF7A91D8299BDF3A96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 950D3927586E67B49E212E9E042A52D7 /* Pods-SpeechRecognitionNavigationController.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SpeechRecognitionNavigationController/Pods-SpeechRecognitionNavigationController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SpeechRecognitionNavigationController/Pods-SpeechRecognitionNavigationController.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		73C430DF1C18BEE1C265F43834255D30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1A7DF4AD2A93E2EEBD7D9CBB6F88E78 /* Cobra-iOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cobra-iOS/Cobra-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cobra-iOS/Cobra-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Cobra-iOS/Cobra-iOS.modulemap";
+				PRODUCT_MODULE_NAME = Cobra;
+				PRODUCT_NAME = Cobra;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8F214785062245DA5F95E2E3B7CC8EF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AA5D5961888D640AEEDD2E07AD42815 /* Pods-SpeechRecognitionNavigationController.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SpeechRecognitionNavigationController/Pods-SpeechRecognitionNavigationController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SpeechRecognitionNavigationController/Pods-SpeechRecognitionNavigationController.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A505C2F111BE49C2A8F586AF7BA3394E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA92BAC41C1C03BFF1E9B42B3710656F /* ios-voice-processor.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ios-voice-processor/ios-voice-processor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ios-voice-processor/ios-voice-processor-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ios-voice-processor/ios-voice-processor.modulemap";
+				PRODUCT_MODULE_NAME = ios_voice_processor;
+				PRODUCT_NAME = ios_voice_processor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B4EDECE9F9362088359AF38910704C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F4F9DF554E335B824ED38859366627D /* ios-voice-processor.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ios-voice-processor/ios-voice-processor-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ios-voice-processor/ios-voice-processor-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/ios-voice-processor/ios-voice-processor.modulemap";
+				PRODUCT_MODULE_NAME = ios_voice_processor;
+				PRODUCT_NAME = ios_voice_processor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22EB2C4452613846DFD7615E6F641FB4 /* Build configuration list for PBXNativeTarget "ios-voice-processor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4EDECE9F9362088359AF38910704C3B /* Debug */,
+				A505C2F111BE49C2A8F586AF7BA3394E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09909ECBA13E8F70A928465E7F7A9A92 /* Debug */,
+				2DE0D8898245310716431F92FA4989FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B7E130717581F3B8323FD06FF42CCF /* Build configuration list for PBXNativeTarget "Pods-SpeechRecognitionNavigationController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F214785062245DA5F95E2E3B7CC8EF1 /* Debug */,
+				6278A2CDD77708BF7A91D8299BDF3A96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8389D8D0D4700C50A2D8076D01EF2076 /* Build configuration list for PBXNativeTarget "Cobra-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5038FAB38D8FDD42D59A5F24C95FF38C /* Debug */,
+				73C430DF1C18BEE1C265F43834255D30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

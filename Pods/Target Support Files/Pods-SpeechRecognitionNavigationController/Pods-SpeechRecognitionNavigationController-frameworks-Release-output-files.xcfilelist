@@ -1,0 +1,3 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cobra.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ios_voice_processor.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PvCobra.framework

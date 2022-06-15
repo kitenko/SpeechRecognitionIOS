@@ -1,0 +1,6 @@
+framework module ios_voice_processor {
+  umbrella header "ios-voice-processor-umbrella.h"
+
+  export *
+  module * { export * }
+}

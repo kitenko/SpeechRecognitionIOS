@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-SpeechRecognitionNavigationController/Pods-SpeechRecognitionNavigationController-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Cobra-iOS/Cobra.framework
+${BUILT_PRODUCTS_DIR}/ios-voice-processor/ios_voice_processor.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Cobra-iOS/PvCobra.framework/PvCobra
