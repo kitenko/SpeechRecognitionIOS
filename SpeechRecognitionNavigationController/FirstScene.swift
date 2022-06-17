@@ -220,7 +220,7 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
 
     //    private let tableView = UITableView()
 
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: viewLayout)
         collectionView.backgroundColor = .white
@@ -288,6 +288,9 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
 
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        hideResultsView()
+    }
 
     // MARK: - additional functions interface
     func addConstrains(){
@@ -308,14 +311,11 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
         constrains.append(collectionView.bottomAnchor.constraint(equalTo: stackTable.bottomAnchor))
         constrains.append(collectionView.topAnchor.constraint(equalTo: stackTable.topAnchor))
 
-        constrains.append(NSLayoutConstraint(item: stackAnimation, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 0.5, constant: 0))
+//        constrains.append(NSLayoutConstraint(item: stackAnimation, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 0.5, constant: 0))
 
-
+        constrains.append(stackAnimation.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 16))
         constrains.append(stackAnimation.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10))
         constrains.append(stackAnimation.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10))
-
-
-
 
         //Activate
         NSLayoutConstraint.activate(constrains)
@@ -326,8 +326,6 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
         failLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         failLabel.text = "Recording failed: please ensure the app has access to your microphone."
         failLabel.numberOfLines = 0
-
-        view.addSubview(failLabel)
 
         view.addSubview(failLabel)
     }

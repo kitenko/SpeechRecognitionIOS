@@ -9,11 +9,10 @@ import ios_voice_processor
 
 class SecondScene: UIViewController {
 
-//    private let ACCESS_KEY = "VOkKPMPXOLpS2TJQsMV+nnGf7479KVvLIw8Ol7DzUO2VX/hdLJDgjQ=="
+    private let ACCESS_KEY = "VOkKPMPXOLpS2TJQsMV+nnGf7479KVvLIw8Ol7DzUO2VX/hdLJDgjQ=="
 
-    private let ACCESS_KEY = "YpfSvOCAXffIM0gA5h2qEolSILk+9whwnijU0iJAeqDGlYFn7CNfUg=="
+//    private let ACCESS_KEY = "YpfSvOCAXffIM0gA5h2qEolSILk+9whwnijU0iJAeqDGlYFn7CNfUg=="
 
-//    private let backBarButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: #selector(banButtonBack))
 
     private let ALPHA: Float = 0.5
 
@@ -121,7 +120,7 @@ class SecondScene: UIViewController {
         let stackMain = UIStackView()
         stackMain.spacing = 15
         stackMain.translatesAutoresizingMaskIntoConstraints = false
-        stackMain.distribution = .fillEqually
+        stackMain.distribution = .fill
         stackMain.alignment = .fill
         stackMain.axis = .vertical
         return stackMain
@@ -142,6 +141,7 @@ class SecondScene: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(perfAdd))
 
         stackMain.addArrangedSubview(voiceInfo)
+        stackMain.addArrangedSubview(firstScene.collectionView)
         stackMain.addArrangedSubview(startButton)
         view.addSubview(stackMain)
         view.addSubview(firstScene.stackAnimation)
@@ -161,13 +161,12 @@ class SecondScene: UIViewController {
         constrains.append(firstScene.stackLabels.bottomAnchor.constraint(equalTo: firstScene.resalutEffectView.bottomAnchor))
         constrains.append(firstScene.stackLabels.topAnchor.constraint(equalTo: firstScene.resalutEffectView.topAnchor))
 
-        constrains.append(NSLayoutConstraint(item: firstScene.stackAnimation, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 0.3, constant: 0))
+//        constrains.append(NSLayoutConstraint(item: firstScene.stackAnimation, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 0.3, constant: 0))
 
         constrains.append(firstScene.stackAnimation.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10))
         constrains.append(firstScene.stackAnimation.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10))
-        constrains.append(firstScene.stackAnimation.topAnchor.constraint(equalTo: view.topAnchor, constant: 30))
+        constrains.append(firstScene.stackAnimation.topAnchor.constraint(equalTo: firstScene.collectionView.topAnchor, constant: 16))
 
-//        constrains.append(firstScene.stackAnimation.bottomAnchor.constraint(equalTo: voiceInfo.topAnchor, constant: 20))
 
         NSLayoutConstraint.activate(constrains)
     }
