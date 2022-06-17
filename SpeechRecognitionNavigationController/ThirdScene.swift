@@ -71,7 +71,7 @@ class ThirdScene: UIViewController {
         super.viewDidLoad()
         synthesizer.delegate = self
         firstScene.sendTo = self
-        
+
     }
 
     override func loadView() {
@@ -99,8 +99,8 @@ class ThirdScene: UIViewController {
     private func sythesisVoice(_ textToSynthes: GameText) {
 
         semaphore.wait()
-        
-        
+
+
         let utterance = AVSpeechUtterance(string: textToSynthes.rawValue)
 
         // Configure the utterance.

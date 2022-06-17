@@ -2,6 +2,7 @@ import UIKit
 import CoreML
 import AVFoundation
 import Foundation
+import Speech
 
 import Cobra
 import ios_voice_processor
@@ -67,6 +68,8 @@ class SecondScene: UIViewController {
     }()
 
     private var arrayToPlay = [Float]()
+
+    weak var reloadFirstConstrane: ReloadConstrains?
 
 
     //MARK: - init
@@ -136,10 +139,7 @@ class SecondScene: UIViewController {
         view.backgroundColor = .white
         self.title = "Auto Recognize"
 
-//        self.navigationController?.navigationBar.isTranslucent = false
-//        self.navigationController?.navigationBar.barTintColor = .red
-//        self.navigationController?.navigationBar.tintColor = .brown
-//        self.navigationController?.navigationBar.ba
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(perfAdd))
 
         stackMain.addArrangedSubview(voiceInfo)
         stackMain.addArrangedSubview(startButton)
@@ -166,7 +166,7 @@ class SecondScene: UIViewController {
         constrains.append(firstScene.stackAnimation.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10))
         constrains.append(firstScene.stackAnimation.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10))
         constrains.append(firstScene.stackAnimation.topAnchor.constraint(equalTo: view.topAnchor, constant: 30))
-        
+
 //        constrains.append(firstScene.stackAnimation.bottomAnchor.constraint(equalTo: voiceInfo.topAnchor, constant: 20))
 
         NSLayoutConstraint.activate(constrains)
@@ -354,6 +354,12 @@ class SecondScene: UIViewController {
         }
     }
 
+    //MARK: - another functions
+    @objc func perfAdd() {
+        reloadFirstConstrane?.reloadConstrains()
+        self.navigationController?.popViewController(animated: true)
+    }
+
 
     //MARK: - prepare data
 
@@ -367,6 +373,26 @@ class SecondScene: UIViewController {
         } catch {
             // couldn't load file :(
         }
+    }
+
+    private func recognizeAppla(_ audioArrayPlay: [Float]){
+        let bufferFormat = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: Double(16000), channels: 1, interleaved: true)
+        let outputBuffer = AVAudioPCMBuffer(pcmFormat: bufferFormat!, frameCapacity: AVAudioFrameCount(audioArrayPlay.count))
+
+        // i had my samples in doubles, so convert then write
+
+        for i in 0..<audioArrayPlay.count {
+            outputBuffer?.floatChannelData!.pointee[i] = audioArrayPlay[i]
+        }
+        outputBuffer?.frameLength = AVAudioFrameCount( audioArrayPlay.count )
+
+
+        firstScene.requesApple.append(outputBuffer!)
+        firstScene.recognizeApple()
+        DispatchQueue.global().asyncAfter(deadline: .now() + 3.0) {
+            self.firstScene.bestAnswerApple()
+        }
+
     }
 
     private func prepareToPlay(_ audioArrayPlay: [Float]) {
@@ -420,6 +446,7 @@ class SecondScene: UIViewController {
 
     private func prepareData(_ noiseArray: [[Float]], _ inputArray: [[Float]]) {
 
+
         newArray.removeAll()
         arrayAudio.removeAll()
 
@@ -446,6 +473,10 @@ class SecondScene: UIViewController {
 
 //        stop()
 //        prepareToPlay(newArray.map {Float($0)})
+
+        firstScene.requesApple = SFSpeechAudioBufferRecognitionRequest()
+
+        recognizeAppla(newArray.map {Float($0)})
 
         newArray = firstScene.normLen(inputArray: newArray)
 
@@ -569,4 +600,8 @@ extension SecondScene {
             print(error.localizedDescription)
         }
     } // end startAudioEngine
+}
+
+protocol ReloadConstrains: AnyObject {
+    func reloadConstrains()
 }

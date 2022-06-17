@@ -4,7 +4,7 @@ import CoreML
 import Speech
 
 class FirstScene: UIViewController, AVAudioRecorderDelegate,
-                         UICollectionViewDelegate, SFSpeechRecognizerDelegate {
+                  UICollectionViewDelegate, SFSpeechRecognizerDelegate {
 
 
     var recordingSession: AVAudioSession!
@@ -34,12 +34,14 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
     let sampleRate: Float = 16000
 
     var labelChange: String = " " {
-            didSet {
-                sendTo?.receivedMessage(labelChange)
-            }
+        didSet {
+            sendTo?.receivedMessage(labelChange)
         }
+    }
 
     weak var sendTo: SendMessage?
+
+    private var secondScene: SecondScene?
 
     //MARK: - VOSK
     var processingQueue: DispatchQueue!
@@ -229,7 +231,11 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
     // MARK: - main funktions
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.title = "Recognition by button"
+
+        secondScene = SecondScene(self)
+        secondScene?.reloadFirstConstrane = self
+
+        self.title = "Recognition by button"
         addConstrains()
         //        constrainResult = resalutEffectView.topAnchor.constraint(equalTo: stackAnimation.topAnchor, constant: resultConstraint)
 
@@ -284,7 +290,7 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
 
 
     // MARK: - additional functions interface
-    private func addConstrains(){
+    func addConstrains(){
         var constrains = [NSLayoutConstraint]()
         // Add
         constrains.append(stackMain.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor))
@@ -367,8 +373,7 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
     }
 
     @objc func showSecondScene(){
-        let secondScene = SecondScene(self)
-        self.navigationController?.pushViewController(secondScene, animated: true)
+        self.navigationController?.pushViewController(secondScene!, animated: true)
     }
 
     @objc func showThirdScene(){
@@ -387,7 +392,7 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
 
     func getWhistleURL(_ firstScene: Bool = true) -> URL {
         if firstScene {
-        return getDocumentsDirectory().appendingPathComponent("whistle.waw")
+            return getDocumentsDirectory().appendingPathComponent("whistle.waw")
         } else {
             return getDocumentsDirectory().appendingPathComponent("outFileCobra.waw")
         }
@@ -522,7 +527,9 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
 
 
     func recognizeApple() {
-        thirdAnswer.text = "Apple: "
+        DispatchQueue.main.async {
+            self.thirdAnswer.text = "Apple: "
+        }
         guard let myRecognizer = SFSpeechRecognizer() else {
             self.sendAlert(title: "Speech Recognizer Error", message: "Speech recognition is not supported for your current locale.")
             return
@@ -539,18 +546,18 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
                 self.arrayAnwserApple.append(result.bestTranscription.formattedString)
 
             } else if let error = error {
-//                self.sendAlert(title: "Speech Recognizer Error", message: "There has been a speech recognition error.")
-//                self.sendAlert(title: "Speech Recognizer Error", message: error.localizedDescription)
-//                print(error.localizedDescription)
+                //                self.sendAlert(title: "Speech Recognizer Error", message: "There has been a speech recognition error.")
+                //                self.sendAlert(title: "Speech Recognizer Error", message: error.localizedDescription)
+                                print(error.localizedDescription)
             }
         }
     }
 
     func bestAnswerApple() {
-//        print("Apple:  \(arrayAnwserApple.last ?? "no answer")")
         DispatchQueue.main.async {
             self.thirdAnswer.text = "Apple: \(self.arrayAnwserApple.last ?? "no answer")"
         }
+        recognitionTask?.finish()
     }
 
     func normLen(inputArray: [Double]) -> [Double] {
@@ -708,7 +715,7 @@ extension FirstScene: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return class_labels?.count ?? 0
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.identifier, for: indexPath) as! Cell
 
@@ -755,6 +762,15 @@ extension FirstScene: UICollectionViewDelegateFlowLayout {
     }
 
 }
+
+extension FirstScene: ReloadConstrains {
+
+    func reloadConstrains() {
+        self.loadView()
+        self.viewDidLoad()
+    }
+}
+
 
 protocol SendMessage: AnyObject {
     func receivedMessage(_ message: String)
