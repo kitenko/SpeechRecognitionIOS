@@ -232,21 +232,17 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        secondScene = SecondScene(self)
-        secondScene?.reloadFirstConstrane = self
-
         self.title = "Recognition by button"
-        addConstrains()
-        //        constrainResult = resalutEffectView.topAnchor.constraint(equalTo: stackAnimation.topAnchor, constant: resultConstraint)
 
         recordingSession = AVAudioSession.sharedInstance()
+
         do {
             try recordingSession.setCategory(.playAndRecord, mode: .default)
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
                     if allowed {
-                        print("Yes")
+                        print("yes")
                     } else {
                         self.loadFailUI()
                     }
@@ -256,7 +252,10 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
             self.loadFailUI()
         }
 
-        processingQueue = DispatchQueue(label: "recognizerQueue", qos: .default, attributes: .concurrent)
+
+        secondScene = SecondScene(self)
+        secondScene?.reloadFirstConstrane = self
+
         load_model()
     }
 
@@ -267,14 +266,12 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
         stackButton.addArrangedSubview(recordButton)
         stackButton.addArrangedSubview(autoRecognition)
         stackButton.addArrangedSubview(gameButton)
-        //
+
         stackAnimation.addArrangedSubview(resalutEffectView)
         stackTable.addArrangedSubview(collectionView)
-        //
         stackLabels.addArrangedSubview(firstAnswer)
         stackLabels.addArrangedSubview(secondAnswer)
         stackLabels.addArrangedSubview(thirdAnswer)
-        //
         resalutEffectView.contentView.addSubview(stackLabels)
 
 
@@ -285,6 +282,8 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
         view.addSubview(stackAnimation)
 
         prepareTable()
+        addConstrains()
+
 
     }
 
@@ -310,8 +309,6 @@ class FirstScene: UIViewController, AVAudioRecorderDelegate,
         constrains.append(collectionView.trailingAnchor.constraint(equalTo: stackTable.trailingAnchor))
         constrains.append(collectionView.bottomAnchor.constraint(equalTo: stackTable.bottomAnchor))
         constrains.append(collectionView.topAnchor.constraint(equalTo: stackTable.topAnchor))
-
-//        constrains.append(NSLayoutConstraint(item: stackAnimation, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 0.5, constant: 0))
 
         constrains.append(stackAnimation.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 16))
         constrains.append(stackAnimation.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10))

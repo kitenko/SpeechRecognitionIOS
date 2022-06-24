@@ -12,8 +12,13 @@ class ThirdScene: UIViewController {
     private var answerGame = " " {
         didSet {
             secondScene.stop()
-            proccesingResults(textSynthes)
-            print("ответ, ", answerGame)
+            semaphore.signal()
+            if answerGame == "Выйти" {
+                print("ответ, ", answerGame)
+            } else {
+                proccesingResults(textSynthes)
+                print("ответ, ", answerGame)
+            }
         }
     }
     private var textSynthes = " "
@@ -24,15 +29,9 @@ class ThirdScene: UIViewController {
 
     private let semaphore = DispatchSemaphore(value: 1)
 
-    private var triggerGame = 1 {
-        didSet {
-            if triggerGame >= 3 {
-                sythesisVoice(.continueGame)
-            } else {
-                getAnswer()
-            }
-        }
-    }
+    private let maxTrigger = 3
+
+    private var triggerGame = 0
 
     //MARK: - Button
 
@@ -98,9 +97,6 @@ class ThirdScene: UIViewController {
 
     private func sythesisVoice(_ textToSynthes: GameText) {
 
-        semaphore.wait()
-
-
         let utterance = AVSpeechUtterance(string: textToSynthes.rawValue)
 
         // Configure the utterance.
@@ -122,10 +118,14 @@ class ThirdScene: UIViewController {
     }
 
     private func getAnswer(){
-        do {
-            try secondScene.start()
-        } catch {
-            print("problev with micro")
+
+        DispatchQueue.global().async {
+            self.semaphore.wait()
+            do {
+                try self.secondScene.start()
+            } catch {
+                print("problev with micro")
+            }
         }
     }
 
@@ -137,8 +137,12 @@ class ThirdScene: UIViewController {
                 sythesisVoice(.explanationRule)
             } else if answerGame == "Нет" {
                 sythesisVoice(.noDesirePlay)
+            } else {
+                sythesisVoice(.dontUnderstand)
             }
+
         case GameText.explanationRule.rawValue:
+            triggerGame = 0
             sythesisVoice(.startRound)
 
         case GameText.startRound.rawValue:
@@ -156,9 +160,17 @@ class ThirdScene: UIViewController {
         case GameText.youWinn.rawValue:
             if arrayWords.contains(answerGame) {
                 if arrayWords.randomElement() == answerGame {
+                    if triggerGame + 1 == maxTrigger {
+                        sythesisVoice(.youWinnCool)
+                    } else {
                     sythesisVoice(.youWinn)
+                    }
                 } else {
+                    if triggerGame + 1 == maxTrigger {
+                        sythesisVoice(.youLostNo)
+                    } else {
                     sythesisVoice(.youLost)
+                    }
                 }
                 triggerGame += 1
             } else {
@@ -167,15 +179,33 @@ class ThirdScene: UIViewController {
         case GameText.youLost.rawValue:
             if arrayWords.contains(answerGame) {
                 if arrayWords.randomElement() == answerGame {
+                    if triggerGame + 1 == maxTrigger {
+                        sythesisVoice(.youWinnCool)
+                    } else {
                     sythesisVoice(.youWinn)
+                    }
                 } else {
+                    if triggerGame + 1 == maxTrigger {
+                        sythesisVoice(.youLostNo)
+                    } else {
                     sythesisVoice(.youLost)
+                    }
                 }
                 triggerGame += 1
             } else {
                 sythesisVoice(.unknowWord)
             }
+        case GameText.unknowWord.rawValue:
+            sythesisVoice(.continueGame)
 
+        case GameText.continueGame.rawValue:
+            if answerGame == "Да" {
+                sythesisVoice(.coolContinue)
+            } else if answerGame == "Нет" {
+                sythesisVoice(.coolGetStop)
+            } else {
+                sythesisVoice(.continue222)
+            }
         default:
             sythesisVoice(.unknowWord)
         }
@@ -187,32 +217,62 @@ extension ThirdScene {
         case startGame = "Давай сыграем в камень, ножницы, бумага?"
         case explanationRule = "Супер! Мы играем так, ты произносишь либо камень, либо ножницы, либо бумага, я отвечаю выйграл ты или нет."
         case startRound = "Начинаем, произнеси слово."
-        case youWinn = "Ты выйграл!"
-        case youLost = "Я выйграла, ты проиграл!"
+        case youWinn = "Ты выйграл!, загадай ещё"
+        case youLost = "Я выйграла, ты проиграл!, давай ещё попробуешь!"
         case unknowWord = "Я не знаю этого слова!"
         case noDesirePlay = "Очень жаль что ты не хочешь играть"
         case stone = "Камень"
         case scissors = "Ножницы"
         case papper = "Бумага"
         case continueGame = "Хочешь продолжить игру или остановимся на этом?"
+        case dontUnderstand = "Я не поняла, хочешь ли ты играть или нет?"
+        case coolContinue = "Классно!, продолжаем"
+        case coolGetStop = "Хорошо, ты молодец, пока пока!"
+        case continue222 = "Продолжаем?"
+        case youWinnCool = "Круто!, ты выйграл"
+        case youLostNo = "В этот раз ты проиграл"
     }
 }
 
 extension ThirdScene: AVSpeechSynthesizerDelegate {
     func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
 
-        if utterance.speechString == GameText.explanationRule.rawValue {
-            semaphore.signal()
-            proccesingResults(GameText.explanationRule.rawValue)
-        } else {
-            if utterance.speechString == GameText.youWinn.rawValue || utterance.speechString == GameText.youLost.rawValue {
-                textSynthes = GameText.startRound.rawValue
-            } else {
-                textSynthes = utterance.speechString
-            }
+        print("out -- \(utterance.speechString)")
 
-            sleep(1)
+        if utterance.speechString == GameText.explanationRule.rawValue {
+            proccesingResults(GameText.explanationRule.rawValue)
+        } else if utterance.speechString == GameText.startRound.rawValue {
+            textSynthes = utterance.speechString
+            getAnswer()
+        } else if utterance.speechString == GameText.youWinn.rawValue || utterance.speechString == GameText.youLost.rawValue {
+                    textSynthes = utterance.speechString
+                    getAnswer()
+                } else if utterance.speechString == GameText.youWinnCool.rawValue || utterance.speechString == GameText.youLostNo.rawValue {
+                    secondScene.stop()
+                    semaphore.signal()
+                    sythesisVoice(.continueGame)
+        } else if utterance.speechString == GameText.coolContinue.rawValue {
+            proccesingResults(GameText.explanationRule.rawValue)
+        } else if utterance.speechString == GameText.coolGetStop.rawValue {
+            secondScene.stop()
             semaphore.signal()
+        } else if utterance.speechString == GameText.continueGame.rawValue {
+            textSynthes = GameText.continueGame.rawValue
+            getAnswer()
+        } else if utterance.speechString == GameText.unknowWord.rawValue {
+            semaphore.signal()
+            proccesingResults(GameText.unknowWord.rawValue)
+        } else if utterance.speechString == GameText.dontUnderstand.rawValue {
+            textSynthes = GameText.startGame.rawValue
+            getAnswer()
+        } else if utterance.speechString == GameText.startGame.rawValue {
+            textSynthes = GameText.startGame.rawValue
+            getAnswer()
+        } else if utterance.speechString == GameText.noDesirePlay.rawValue {
+            secondScene.stop()
+            semaphore.signal()
+        } else if utterance.speechString == GameText.continue222.rawValue {
+            textSynthes = GameText.continueGame.rawValue
             getAnswer()
         }
     }
