@@ -7,14 +7,19 @@ class ThirdScene: UIViewController {
     private let synthesizer = AVSpeechSynthesizer()
 
     private var firstScene: FirstScene
-    private var secondScene: SecondScene
+    var secondScene: SecondScene
 
-    private var answerGame = " " {
+    private var scenario: ScenarioTest?
+
+    var answerGame = " " {
         didSet {
+            if textSynthes != GameText.detectPhone.rawValue {
             secondScene.stop()
             semaphore.signal()
+            }
             if answerGame == "Выйти" {
                 print("ответ, ", answerGame)
+                scenario?.semaphoreScenario.signal()
             } else {
                 proccesingResults(textSynthes)
                 print("ответ, ", answerGame)
@@ -53,6 +58,24 @@ class ThirdScene: UIViewController {
         return button
     }()
 
+    private let scenarioButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Start Scenario", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .title1)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .lightGray
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.layer.cornerRadius = 12
+        button.clipsToBounds = true
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOffset = CGSize(width: 2, height: 5)
+        button.layer.masksToBounds = false
+        button.layer.shadowRadius = 5
+        button.layer.shadowOpacity = 2.0
+        button.addTarget(self, action: #selector(startScenario), for: .touchUpInside)
+        return button
+    }()
+
 
     //MARK: - init
 
@@ -66,10 +89,20 @@ class ThirdScene: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
         synthesizer.delegate = self
         firstScene.sendTo = self
+        scenario = ScenarioTest(self)
+        secondScene.initCobra()
+        let audioSession = AVAudioSession.sharedInstance()
+
+        do {
+            try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
+        } catch let error as NSError {
+            print("audioSession error: \(error.localizedDescription)")
+        }
 
     }
 
@@ -77,6 +110,7 @@ class ThirdScene: UIViewController {
         view = UIView()
         view.backgroundColor = .white
         view.addSubview(gameButton)
+        view.addSubview(scenarioButton)
         addConstain()
     }
 
@@ -87,15 +121,17 @@ class ThirdScene: UIViewController {
         constrains.append(NSLayoutConstraint(item: gameButton, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
         constrains.append(NSLayoutConstraint(item: gameButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
 
+        constrains.append(scenarioButton.topAnchor.constraint(equalTo: gameButton.bottomAnchor, constant: 20))
+        constrains.append(NSLayoutConstraint(item: scenarioButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0))
+
         NSLayoutConstraint.activate(constrains)
     }
 
     @objc func startGame() {
-        secondScene.initCobra()
         sythesisVoice(GameText.startGame)
     }
 
-    private func sythesisVoice(_ textToSynthes: GameText) {
+    func sythesisVoice(_ textToSynthes: GameText) {
 
         let utterance = AVSpeechUtterance(string: textToSynthes.rawValue)
 
@@ -105,8 +141,11 @@ class ThirdScene: UIViewController {
         utterance.postUtteranceDelay = 0.2
         utterance.volume = 0.8
 
+        let  voiceIdentifier = "com.apple.ttsbundle.Milena-premium"
+
         // Retrieve the British English voice.
-        let voice = AVSpeechSynthesisVoice(language: "ru-RU")
+        let voice = AVSpeechSynthesisVoice(identifier: voiceIdentifier)
+
 
         // Assign the voice to the utterance.
         utterance.voice = voice
@@ -117,7 +156,7 @@ class ThirdScene: UIViewController {
 
     }
 
-    private func getAnswer(){
+    func getAnswer(){
 
         DispatchQueue.global().async {
             self.semaphore.wait()
@@ -206,9 +245,21 @@ class ThirdScene: UIViewController {
             } else {
                 sythesisVoice(.continue222)
             }
+
+        case GameText.detectPhone.rawValue:
+            print("я тут ")
+            if answerGame == "Отключить повтор" {
+                print(answerGame)
+            }
+
         default:
             sythesisVoice(.unknowWord)
         }
+    }
+
+
+    @objc func startScenario() {
+        scenario?.startScenario()
     }
 }
 
@@ -231,6 +282,12 @@ extension ThirdScene {
         case continue222 = "Продолжаем?"
         case youWinnCool = "Круто!, ты выйграл"
         case youLostNo = "В этот раз ты проиграл"
+
+        case detectDrowsiness = "Мне кажется ты начинаешь засыпать."
+        case detectSeatBelt = "Ты прёстегнул ремень безопасности?"
+        case detectDrink = "Если ты хочешь попить что-то, то это следует делать во время остановки а не за рулём автомобиля!"
+        case detectFood = "Я надеюсь это очень вкусно, но держать руль нужно двумя руками!"
+        case detectPhone = "Обнаружено использование телефона"
     }
 }
 
@@ -256,6 +313,7 @@ extension ThirdScene: AVSpeechSynthesizerDelegate {
         } else if utterance.speechString == GameText.coolGetStop.rawValue {
             secondScene.stop()
             semaphore.signal()
+            scenario?.semaphoreScenario.signal()
         } else if utterance.speechString == GameText.continueGame.rawValue {
             textSynthes = GameText.continueGame.rawValue
             getAnswer()
@@ -271,9 +329,21 @@ extension ThirdScene: AVSpeechSynthesizerDelegate {
         } else if utterance.speechString == GameText.noDesirePlay.rawValue {
             secondScene.stop()
             semaphore.signal()
+            scenario?.semaphoreScenario.signal()
         } else if utterance.speechString == GameText.continue222.rawValue {
             textSynthes = GameText.continueGame.rawValue
             getAnswer()
+        } else if utterance.speechString == GameText.detectDrowsiness.rawValue {
+            sythesisVoice(.startGame)
+        } else if utterance.speechString == GameText.detectFood.rawValue {
+            scenario?.semaphoreScenario.signal()
+        } else if utterance.speechString == GameText.detectDrink.rawValue {
+            scenario?.semaphoreScenario.signal()
+        } else if utterance.speechString == GameText.detectSeatBelt.rawValue {
+            scenario?.semaphoreScenario.signal()
+        } else if utterance.speechString == GameText.detectPhone.rawValue {
+            textSynthes = GameText.detectPhone.rawValue
+            scenario?.semaphoreMobile.signal()
         }
     }
 }

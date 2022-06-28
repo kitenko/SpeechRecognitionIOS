@@ -247,7 +247,6 @@ class SecondScene: UIViewController {
         arrayAudio.removeAll()
         arrayNoiseOne.removeAll()
         arrayNoiseTwo.removeAll()
-//        arrayToPlay.removeAll()
 
         startAudioEngine()
     }
@@ -257,7 +256,6 @@ class SecondScene: UIViewController {
             return
         }
 
-//        VoiceProcessor.shared.stop()
         isListening = false
 
         DispatchQueue.main.async {

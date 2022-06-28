@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022B72342869A2B6001D22F1 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B72332869A2B6001D22F1 /* Scenario.swift */; };
 		025CAB9E28490F18005A43B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025CAB9D28490F18005A43B6 /* AppDelegate.swift */; };
 		025CABA028490F18005A43B6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025CAB9F28490F18005A43B6 /* SceneDelegate.swift */; };
 		025CABA728490F19005A43B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025CABA628490F19005A43B6 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		022B72332869A2B6001D22F1 /* Scenario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		025CAB9A28490F18005A43B6 /* SpeechRecognitionNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeechRecognitionNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		025CAB9D28490F18005A43B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		025CAB9F28490F18005A43B6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				025CABA628490F19005A43B6 /* Assets.xcassets */,
 				025CABA828490F19005A43B6 /* LaunchScreen.storyboard */,
 				025CABAB28490F19005A43B6 /* Info.plist */,
+				022B72332869A2B6001D22F1 /* Scenario.swift */,
 			);
 			path = SpeechRecognitionNavigationController;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				025CABB6284913F3005A43B6 /* mobilenetSpeechSpeBig.mlmodel in Sources */,
 				02DE7DEB284D1CDB00F44D57 /* ThirdScene.swift in Sources */,
 				025CABA028490F18005A43B6 /* SceneDelegate.swift in Sources */,
+				022B72342869A2B6001D22F1 /* Scenario.swift in Sources */,
 				025CABB8284913FC005A43B6 /* mobilenetSpeechSpeSmall.mlmodel in Sources */,
 				025CABC02849195F005A43B6 /* SecondScene.swift in Sources */,
 			);
